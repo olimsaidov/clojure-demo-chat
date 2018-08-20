@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+}
+
+h3 {
+    margin: 10px 0;
+}
+
+#output {
+    height: 200px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    overflow-y: scroll;
+    padding: 5px;
+    font-size: 18px;
+}
+
+#output > div {
+    margin-bottom: 3px;
+    display: flex;
+}
+
+#output > div b {
+    line-height: 1;
+    font-size: 18px;
+}
+
+#output > div pre {
+    flex-grow: 1;
+    margin: 0 0 0 10px;
+    line-height: 1;
+}
+
+#input {
+    display: block;
+    border: 1px solid #ccc;
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 18px;
+    padding: 5px;
+}
+
+#send {
+    border: 1px solid #ccc;
+    background: none;
+    font-size: 18px;
+}
