@@ -1,4 +1,5 @@
 (ns demo.core
+  (:gen-class)
   (:require [org.httpkit.server :as http]
             [compojure.core :refer :all]
             [selmer.parser :refer [render render-file]]
@@ -50,7 +51,7 @@
 (defn websocket-handler [request]
   (let [username (-> request :params :username)]
     (http/with-channel request chan
-      (add-channel channelsan username)
+      (add-channel chan username)
       (http/on-close chan (fn [_] (del-channel chan)))
       (http/on-receive chan (fn [msg] (broadcast username msg))))))
 
@@ -63,5 +64,6 @@
     (route/resources "/assets")))
 
 
-(defonce stop-server
-         (http/run-server #'handler {:port 3000}))
+(defn -main []
+  (http/run-server #'handler {:port 3000})
+  (println "Web server started at localhost:3000"))
